@@ -1,0 +1,16 @@
+class helloworld
+{
+public static void main(String ar[])
+}
+int num;
+//string name;
+System.out.println("enter any number");
+Scanner sc-new Scanner(System.in);
+num=sc.nextInt();
+//name=sc.nestLine();
+if(num%2==0)
+stem.out.println(" even number ");
+else
+system.out.println("odd");
+}
+}

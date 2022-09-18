@@ -1,0 +1,67 @@
+class ThreadDemo implements Runnable
+{
+
+  public void run()
+{
+
+    for(int i=0;i<5;i++)
+      {
+       System.out.println(Thread.currentThread()+"i="+i);
+      try
+       {     
+      Thread.sleep(5000);
+       }
+        catch(InterruptedException e)
+         {
+           System.out.println(e);
+          }
+          }
+}
+}
+public class testthreaddemo
+{
+
+  public static void main(String ar[])
+{
+   ThreadDemo td=new ThreadDemo();
+    Thread t1=new Thread(td);
+    Thread t2=new Thread(td);
+    Thread t3=new Thread(td);
+    Thread t4=new Thread(td);
+     t1.setName("A");
+     t2.setName("B");
+     t3.setName("C");
+     t4.setName("D");
+       //t1.setDaemon(true);
+      t1.start();
+      t2.start();
+       t3.start();
+       t4.start();
+    //System.out.println("Alive or Not"+t1.isDaemon());
+      // t4.setPriority(10);
+        //t3.setPriority(10);
+         //t2.setPriority(10);
+          
+          
+           
+          // t4.yield();
+           // t3.suspend();
+       //t3.resume();
+
+
+/*for(int i=0;i<5;i++)
+      {
+       System.out.println(Thread.currentThread()+"i="+i);
+      try
+       {     
+      Thread.sleep(1000);
+       }
+        catch(InterruptedException e)
+         {
+           System.out.println(e);
+          }
+          }*/
+}
+}
+
+   

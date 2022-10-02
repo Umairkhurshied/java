@@ -1,0 +1,97 @@
+import javax.swing.* ;
+import java.awt.event.* ;
+import java.awt.* ;
+
+public class Gst {
+    //declare the gui elements
+    public static JFrame frmMain ;
+    public static JLabel iniAmount ;
+    public static JTextField textIniAmount ;
+    public static JLabel rateGst ;
+    public static JRadioButton r1, r2, r3, r4  ;
+    public static JLabel gstAmount ;
+    public static JTextField textGstAmount ;
+    public static JLabel finAmount ;
+    public static JTextField textFinAmount ;
+    public static JButton btnCalGst ;
+
+    public  static void main(String[] args)
+    {
+        final int[] x = new int[1];
+        //set up the frame
+        frmMain= new JFrame("gst gui app ") ;
+        frmMain.setSize(1000,100) ;
+        frmMain.setLayout(new FlowLayout()) ;
+
+        //create gui elements
+        iniAmount = new JLabel("initial amount");
+        textIniAmount= new JTextField(10) ;
+        rateGst = new JLabel("gst rate%");
+        r1=new JRadioButton("5");
+        r2=new JRadioButton("12");
+        r3=new JRadioButton("18");
+        r4=new JRadioButton("28");
+        ButtonGroup bg=new ButtonGroup();
+        bg.add(r1);
+        bg.add(r2);
+        bg.add(r3);
+        bg.add(r4);
+        gstAmount= new JLabel("GST amount") ;
+        textGstAmount = new JTextField(10) ;
+        finAmount = new JLabel("final amount");
+        textFinAmount= new JTextField(10) ;
+        btnCalGst= new JButton("calculate") ;
+
+        // add action listener
+        r1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent r1e) {
+                 x[0] = 5 ;
+            }
+        });
+        r2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent r2e) {
+                 x[0] = 12 ;
+            }
+        });
+        r3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent r3e) {
+                 x[0] = 18 ;
+            }
+        });
+        r4.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent r4e) {
+                 x[0] = 28 ;
+            }
+        });
+        btnCalGst.addActionListener(
+                new ActionListener()
+                {
+                    public void actionPerformed(ActionEvent e)
+                    {
+                        double res = Double.valueOf(textIniAmount.getText()) * x[0] /100 ;
+                        textGstAmount.setText(String.valueOf(res)) ;
+
+                        double result = Double.valueOf(textIniAmount.getText()) +Double.valueOf(textIniAmount.getText()) * x[0] /100 ;
+                        textFinAmount.setText(String.valueOf( result));
+                    }
+                }
+        );
+
+        //add the gui elements to the frame
+        frmMain.add(iniAmount) ;
+        frmMain.add(textIniAmount) ;
+        frmMain.add(rateGst) ;
+        frmMain.add(r1) ;
+        frmMain.add(r2) ;
+        frmMain.add(r3) ;
+        frmMain.add(r4) ;
+        frmMain.add(btnCalGst) ;
+        frmMain.add(gstAmount);
+        frmMain.add(textGstAmount) ;
+        frmMain.add(finAmount) ;
+        frmMain.add(textFinAmount) ;
+
+        // make the frame visible
+        frmMain.setVisible(true);
+    }
+}
